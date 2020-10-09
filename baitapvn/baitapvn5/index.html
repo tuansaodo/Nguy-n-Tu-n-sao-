@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <style>
+        .div1{
+           width: 200px;
+           height: 90px;
+           background-color: blue;
+           font-size: 30px;
+           display: flex;
+          justify-content: center;
+           color: white ;
+           transition-property: width height ;
+           transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+            transition-delay: 100ms;
+            
+        }
+        .div1:hover{
+            width: 200px;
+            height: 90px;
+           border-radius: 600px;
+           background-color: green;
+        }
+        .div2{
+            width: 40%;
+            height: 40%;
+            animation-duration: 600ms;
+            animation-name: change;
+            animation-iteration-count: infinite;
+            margin: 90px;
+            animation-delay: 200ms;
+            border:none;
+            padding-bottom: 100px;
+        }
+        .traitim{
+            object-fit: cover;
+        }
+        @keyframes change{
+          form {
+              width: 10px;
+              height: 10px;
+          }
+          to {
+              transform: scale(1.1);
+          }
+        }
+        .bai3{
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: ivory;
+
+        }
+        figure{
+            width: 90px;
+            height: 90px;
+            margin: 10px ;
+        }
+        .hinh{
+            width: 90%;
+            height: 90%;
+            transition-property: all;
+            transition-duration: 1000ms;
+            object-fit: cover;
+        }
+        .hinh:hover{
+            transform: scale(1.9);
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div class="div1">
+      <p> Login </p>
+    </div>
+    <div class="div2">
+        <img class="traitim" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/220px-Heart_coraz%C3%B3n.svg.png" alt="trai-tim">
+    </div>
+    <div class="bai3">
+        <figure><img class="hinh" src="https://e7.pngegg.com/pngimages/342/157/png-clipart-super-mario-3d-land-super-mario-bros-super-mario-3d-world-new-super-mario-bros-land-game-super-mario-bros.png" alt=""></figure>
+        <figure><img class="hinh" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAXv-oEwx6_NrhVUo3J1neIk4pGuRWa8qHeQ&usqp=CAU" alt=""></figure>
+        <figure><img class="hinh" src="https://www.mariowiki.com/images/thumb/f/f9/Baddie_Box_SM3DW_Prima.jpg/1200px-Baddie_Box_SM3DW_Prima.jpg" alt=""></figure>
+        <figure><img class="hinh" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQfK--LF8XE1hV7vTMQwhC8pNd8fKHFesKOnw&usqp=CAU" alt=""></figure>
+        <figure><img class="hinh" src="https://vignette.wikia.nocookie.net/mario/images/3/30/595px-Light_Box_Artwork_-_Super_Mario_3D_World.png/revision/latest?cb=20140405223925&path-prefix=es" alt=""></figure>
+        <figure><img class="hinh" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQtozA83QvfuoSnt9RVXYmQLXdajVCGGQLz1w&usqp=CAU" alt=""></figure>
+        <figure><img class="hinh" src="https://www.pngkey.com/png/detail/225-2252223_image-head-artwork-d-super-mario-3d-world.png" alt=""></figure>
+        <figure><img class="hinh" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRrbHjuOQx_seCpBqRKp3-s1zO3FcQlkKtjtQ&usqp=CAU" alt=""></figure>
+        <figure><img class="hinh" src="https://www.seekpng.com/png/detail/691-6912828_mario-clipart-mystery-box.png" alt=""></figure>
+    </div>
+</body>
+</html>
