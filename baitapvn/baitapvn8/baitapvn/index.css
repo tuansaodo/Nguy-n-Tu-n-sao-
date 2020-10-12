@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+}
+body{
+    background-color: silver;
+}
+
+.register{
+    width: 50%;
+    height: 30px;
+    margin-top: 30px;
+    
+}
+hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: -30px;
+    margin-right: -30px;
+    border-style: none;
+    border-width: 0px;
+    height: 1px;
+    background-color: #dddddd;
+  
+   
+}
+.label{
+    font-size: 50px;
+    flex: 1;
+    
+    
+}
+input{
+    width: 98%;
+    height: 50px;
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+form{
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+    background-color: white;
+    
+}
+.ten{
+   width: 259px;
+}
+select{
+    width: 177px;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.gioitinh{
+    
+    
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 25px;
+
+}
+.sex{
+    color: #1c1e21;
+    border-radius: 2px;
+  
+    background-color: #fff;
+    border: 1px solid #ccd0d5;
+    font-size: 15px;
+    display: inline-block;
+    height: 36px;
+    margin: 8px 6px 6px;
+    padding: 0 28px 0 10px;
+
+    position: relative;
+    
+   
+}
+.sex input{
+    width: 20px;
+    height: 36px;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+.sex label{
+    
+    line-height: 36px;
+    padding: 0 28px 0 10px;
+}
+.a1{
+font-size: 13px;}
+button{
+margin: 0 120px  ;
+width: 50%;
+height: 50px;
+font-size: 30px;
+background-color: rgb(33, 163, 33);
+color:white ;
+text-align: center;
+}
