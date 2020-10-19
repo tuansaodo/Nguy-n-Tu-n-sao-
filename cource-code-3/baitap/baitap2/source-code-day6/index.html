@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .doan-van-1::first-letter {
+          font-size: 50px;
+         
+        }
+        .doan-van-1::first-line{
+            color: aqua;
+        }
+        
+        .money::before{
+            content: "Tôi";
+        }
+        .money::after{
+            content: "VND";
+        }
+
+     
+        .doan-van-1::selection{
+            background-color: pink;
+        }
+        .money{
+            position: relative;
+        }
+        .money::after{
+            position: absolute;
+            width: 100px;
+           height: 30px;
+           background-color: burlywood;
+           top: 0;
+           right: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p class="doan-van-1">Sáng tạo không giới hạn, bền bỉ, âm thầm nhưng đầy bất ngờ -
+                         đó là những gì người ta nói về Đức Phúc ở thời điểm hiện tại cũng như sản phẩm mới mang tên Người Ơi Người Ở
+                        Đừng Về. Sản phẩm gặt hái vô vàn lời khen, trở thành một trong những ca khúc đình đám nhất thời điểm hiện tại
+                        với no.1 Realtime HOT14, no.1 HOT14 tuần và lượt view YouTube cực khủng.
+    </p>
+
+    <p class="money">Có 1 tờ tiền giá trị 10.000 đđ</p>
+    <p class="money">Có 1 tờ tiền giá trị 20.000 đđ</p>
+    <p class="money" >Có 1 tờ tiền giá trị 330.000 đđ</p>
+</body>
+
+</html>

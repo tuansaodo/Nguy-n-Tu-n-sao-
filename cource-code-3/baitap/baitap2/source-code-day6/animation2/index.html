@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .div1{
+           width: 200%;
+           height: 50px;
+           background-color: green;
+           animation-name: change-color;
+           animation-duration: 2s;
+           animation-iteration-count: infinite;
+        }
+        .div p {
+            font-size: 50px;
+            text-align: center;
+            padding-top: 20px;
+             
+
+        }
+
+        @keyframes change-color{
+            from{
+                background-color: hotpink;
+            }
+            to{
+                background-color: indigo;
+            }
+        }
+        @keyframes many-color{
+            10%{
+                  background-color: khaki;
+            }
+            30%{
+                background-color: lightblue;
+
+            }
+            50%{
+                background-color: lightcoral;
+            }
+        }
+      
+         
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <p> chào cậu </p>
+    </div>
+</body>
+</html>
