@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Currency Converter</h1>
+    <h2>Select input currency</h2>
+
+    <form action="">
+      <label for="euro"></label>
+      <input type="radio" name="euro" id="euro" value="euro">euro<br />
+      <label for="usd"></label>
+      <input type="radio" name="usd" id="usd" value="usd">usd<br />
+      <input type="text" name="vnd" id="vnd">
+      <input type="button" value="Convert" onclick="currency()">
+    </form>
+
+    <script>
+        function currency(){
+            let money = document.getElementById("vnd").value;
+            let usd = document.getElementById("usd").value;
+            let euro = document.getElementById("euro").value;
+            if(usd == "usd"){
+                alert (money*23176.50);
+            }
+            else if(euro == "euro"){
+                alert (money*27517.6);
+            }
+        }
+    </script>
+</body>
+</html>
