@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="p1" class="p1a">Trước đây, những nghệ sĩ Underground luôn bị cho là thích đứng trong "bóng tối" với những sản phẩm âm nhạc kén người nghe. Tuy nhiên, sự ra đời của SpaceSpeakers với những cá tính âm nhạc độc đáo như Hoàng Touliver, BinZ, JustaTee, Kimmese, BigDaddy, Cường Seven, Soobin Hoàng Sơn, Rhymastic… đã góp phần thay đổi cái nhìn của khán giả bằng những sản phẩm vô cùng chất lượng. Có thể nói, ở thời điểm hiện tại, SpaceSpeakers đã trở thành một trong những "gangz" xứng tầm là đại diện cho Underground Việt Nam.</p>
+    <p id="p2" class="p2a">Cũng chính vì vậy, cồng đồng fan đã khao khát được chứng kiến một bộ ảnh đại gia đình của Spacespeakers từ khá lâu. Và cuối cùng, hôm nay (ngày 16/11), các thành viên đã tề tựu đông đủ trong bộ ảnh đơn giản nhưng vẫn cực chất khiến các fan "chết mê chết mệt".</p>
+    <p id="p3" class="p3a">Đặc biệt, 4 bức ảnh chân dung của dàn nghệ sĩ cầm trịch Rap Việt gồm Hoàng Touliver, Binz, Rhymastic và Justatee đã nhận được lượng like cực khủng trên Instagram, chứng tỏ độ HOT "không phải dạng vừa" sau quãng thời gian đồng hành cùng chương trình. Bên cạnh đó, khoảnh khắc hai "soái ca" Cường Seven và Soobin Hoàng Sơn đọ sắc "một chín một mười" trong cùng một khung hình cũng khiến dân tình rần rần "thả tim" mỏi tay.
+
+    </p>
+    <script>
+        //bai1:thay đổi màu cho từng đoạn văn
+        function changeColor() {
+            document.getElementById("p1").style.color = "blue";
+            document.getElementById("p2").style.color = "yellow";
+            document.getElementById("p3").style.color = "red";
+        }
+        //bai2: thay đổi backgroud cho trang
+        function changeBgColor(color) {
+            document.body.style.backgroundColor = color;
+
+        }
+        //bai3:thay đổi nội dung của đoạn văn 1 giống đoạn văn 2
+        function copyContent(aa, ab) {
+            document.getElementById("p1").innerText = ab.innerText;
+        }
+        //bai4:thay đổi kích thước font chữ của 3 đoạn văn thành x pixels
+        function changeFontSize(x) {
+            document.getElementById("p1").style.fontSize = x + "px"
+            document.getElementById("p2").style.fontSize = x + "px"
+            document.getElementById("p3p3").style.fontSize = x + "px"
+        }
+    </script>
+</body>
+
+</html>
