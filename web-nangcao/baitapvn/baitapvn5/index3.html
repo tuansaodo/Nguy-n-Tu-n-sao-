@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .nho5{
+            height: 50px;
+            background-color: palevioletred;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .block6  {
+            background-color: plum;
+            width: 90px;
+            height: 30px;
+            margin: 10px 15px 10px 15px;
+        }
+        
+        .lon5{
+            width: calc(100% - 30px);
+            margin: 15px 15px 0 15px;
+            height: 600px;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 15px;
+        }
+        .block7{
+            background-color: plum;
+            height: 400px;
+        }
+        @media (max-width: 700px){
+            .container{
+                justify-content: center;
+            }
+            .block6 {
+                width: 60px;
+            }
+            .lon5{
+                grid-template-rows: auto auto;
+                grid-template-columns: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>Bai5</p>
+    <div class="container5"></div>
+       <div class="nho5">
+          <div class="block6"></div>
+          <div class="block6"></div>
+          <div class="block6"></div>
+       </div>
+       <div class="lon5">
+          <div class="block7"></div>
+          <div class="block7"></div>
+       </div>
+    </div>
+</body>
+</html>

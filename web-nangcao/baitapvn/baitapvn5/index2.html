@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .nho4{
+            height: 60px;
+            background-color: goldenrod;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .block1 ,.block3 {
+            background-color:burlywood;
+            width: 90px;
+            height: 30px;
+            margin: 15px 0 15px 15px;
+        }
+        .block2{
+            width: calc(100% - 225px);
+            margin-right: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .lon4{
+            width: calc(100% - 30px);
+            margin: 15px 15px 0 15px;
+            background-color: burlywood;
+            height: 600px;
+        }
+        @media (max-width: 700px){
+            .nho4{
+                justify-content: space-between;
+            }
+            .block1, .block3{
+                width: 60px;
+            }
+            .block2{
+                width: 75px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>Bai4</p>
+    <div class="container4"></div>
+      <div class="nho4">
+          <div class="block1"></div>
+          <div class="block1"></div>
+          <div class="block2">
+             <div class="block3"></div>
+          </div>
+      </div>
+      <div class="lon4"></div>
+    </div>
+</body>
+</html>
