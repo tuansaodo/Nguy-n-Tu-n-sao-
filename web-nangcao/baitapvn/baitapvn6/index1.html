@@ -14,7 +14,7 @@
         .navabar {
             width: 100%;
             height: 60px;
-            background-color: chartreuse;
+            background-color: palegoldenrod;
             display: flex;
 
         }
@@ -22,11 +22,13 @@
         .logo,
         img {
             margin: 5px;
-            width: 60px;
-            height: 40px;
+
+            height: 50px;
+            display: flex;
+            align-items: center;
         }
 
-        .menu_list {
+        .menu-list {
             width: 180px;
             height: 40px;
             margin: 9px 5px 11px 10px;
@@ -44,8 +46,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: blue;
-            color: white;
+            background-color: azure;
+
         }
 
         .menu:nth-child(2) {
@@ -56,18 +58,18 @@
         .block {
             width: calc(100% - 20px);
             height: 600px;
-            background-color: red;
+            background-color: bisque;
             margin: 10px;
         }
 
         button {
-            background-color: blue;
+            background-color: rebeccapurple;
 
         }
 
         .btn {
             display: none;
-            background-color: blue;
+            background-color: rebeccapurple;
             margin: 0;
             cursor: pointer;
             border: none;
@@ -89,7 +91,7 @@
             font-size: 32px;
         }
 
-        .menu_media {
+        .menu-media {
             display: none;
             position: initial;
             width: calc(100% - 22px);
@@ -105,7 +107,7 @@
         @media(max-width: 700px) {
 
             .logo,
-            .menu_list {
+            .menu-list {
                 display: none;
             }
 
@@ -126,9 +128,9 @@
 <body>
     <div class="navabar">
         <div class="logo"><img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVpgu4O5hVuDPbGSf_qplQ777uOfRDzh0izg&usqp=CAU"
+                src="https://lh3.googleusercontent.com/ogw/ADGmqu-KAI--tTpanUN-MpwbS5L66hbX00WKyL1Ft68DqQ=s32-c-mo"
                 alt=""></div>
-        <div class="menu_list">
+        <div class="menu-list">
             <div class="menu">Menu 1</div>
             <div class="menu">Menu 2</div>
             <div class="menu">Menu 3</div>
@@ -139,7 +141,7 @@
         </div>
     </div>
     <div>
-        <div id="dropdown" class="menu_media">
+        <div id="dropdown" class="menu-media">
             <div class="menu1">Trang chủ</div>
             <div class="menu1">Menu 1</div>
             <div class="menu1">Menu 2</div>
