@@ -115,11 +115,14 @@ a.nho{
     background: #F2F2F2;
     padding: 91px 60px;
     font-family: Poppins;
+    height: 518px;
+    margin-top: -37px;
 }
 .explore{
     text-align: center;
     font-size: 30px;
     font-weight: 600;
+    margin-top: -69px;
 }
 .take{
     text-align: center;
@@ -275,8 +278,8 @@ h3 {
     background:#000;
   }
 .anh2{
-    width: 239px !important;
-    height: 239px !important;
+    width: 252px !important;
+    height: 295px !important;
     margin: 0 30px;
 }
 .slick-next::before {
@@ -285,9 +288,25 @@ h3 {
 
 .slick-next{
     background: url("anh/front\ button\ \(1\).png") center no-repeat !important;
-    width: 85px !important;
-    height: 74px !important;
+    width: 75px !important;
+    height: 75px !important;
 }
 .slick-prev::before {
     content: none !important;
+}
+.t1{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 82px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 203px;
+}
+.slick-prev, .slick-next {
+  
+    top: 28% !important;
+   
 }
