@@ -117,6 +117,7 @@ a.nho{
     font-family: Poppins;
     height: 518px;
     margin-top: -37px;
+    margin-left: -57px;
 }
 .explore{
     text-align: center;
@@ -278,9 +279,9 @@ h3 {
     background:#000;
   }
 .anh2{
-    width: 252px !important;
+    width: 282px !important;
     height: 295px !important;
-    margin: 0 30px;
+    margin: 0 25px 0 18px;
 }
 .slick-next::before {
     content: none !important;
@@ -298,7 +299,7 @@ h3 {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 25px;
     line-height: 82px;
     color: white;
     display: flex;
