@@ -1,176 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sinh viên</title>
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+  <!-- jquery ajax -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <style>
+    .all {
+      width: 80%;
+
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      margin: 10px 0;
+    }
+
+    a:nth-child(2n) {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="all mx-auto">
+    <h1 class="text-center">Danh sách học viên</h1>
+    <a href="form.html"><button type="button" class="btn btn-success "><i class="fas fa-plus-circle"></i> Thêm học
+        viên</button></a>
+    <table class="table table-hover table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Họ tên</th>
+          <th scope="col">Năm sinh</th>
+          <th scope="col">Email</th>
+          <th scope="col">Số điện thoại</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="student"></tbody>
+    </table>
+  </div>
+
+  <script>
+
+    const edit = "edit-student-"
+    $(() => {
+      renderStudent();
+    })
+
+    // lấy thông tin từ sever về bảng
+    function renderStudent() {
+      $.ajax({
+        method: "GET",
+        url: " https://tuan-hong.herokuapp.com/users"
+      })
+        .done(function (data) {
+          let student = '';
+
+          for (let i = 0; i < data.length; i++) {
+            student += `<tr>
+                        <th scope="row" id="name${data[i].id}" contenteditable>${data[i].name}</th>
+                        <td id="dob${data[i].id}" contenteditable >${data[i].birthday}</td>
+                        <td id="email${data[i].id}" contenteditable>${data[i].email}</td>
+                        <td id="phone${data[i].id}" contenteditable>${data[i].phone}</td>
+                        <td>
+                            <a href=""  onclick="updateStudent(${data[i].id})" "><i class="fas fa-edit"></i>Chỉnh sửa</a> | 
+                            <a href="" id="delete" onclick="deleteStudent(${data[i].id})"><i class="fas fa-trash-alt"></i>Xóa </a>
+                        </td>
+                      </tr> `;
+
+          }
+
+          $('.student').html(student);
+
+        });
+    }
+
+
+   
     
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </script>
 
-  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+    integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+    crossorigin="anonymous"></script>
 
-    <title>Hello, world!</title>
-    <style>
-        body{
-            margin: 20px 79px 0 79px;
-            
-        }
-        h1{
-            text-align: center;
-        }
-        .table{
-            margin-top: 12px;
-        }
-        .thead{
-            background-color: #212529;
-            color: white;
-            
-        }
-        .button1{
-            background-color: rgb(227, 233, 233);
-            border-color:  rgb(234, 230, 241);
-            color: blue;
-        }
-        .button2{
-            background-color: rgb(227, 233, 233);
-            border-color:  rgb(234, 230, 241);
-            color: red;
-        }
-        .button3{
-            background-color: white;
-            border-color:  white;
-            color: blue;
-        }
-        .button4{
-            background-color: white;
-            border-color: white;
-            color: red;
-        }
-        a{
-            color: white;
-            text-decoration: none;
-        }
-       .nut:hover{
-           background-color: rgb(7, 75, 7);
-           
-       }
-       a:hover{
-           color: white;
-       }
-    </style>
-  </head>
-  <body>
-    <h1>DANH SÁCH HỌC VIÊN</h1>
+</body>
 
-   <div>
-    <button type="button" class="btn btn-success nut"><a href="form.html">
-        <i class="bi bi-plus-circle-fill">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-        </svg>
-            Thêm học viên
-        </a>
-    </button>
-
-   </div>
-   
-   <div class="table">
-    <table class="table table-striped">
-        <thead class="thead">
-          <tr class="noidung"> 
-            <th scope="col">Họ tên</th>
-            <th scope="col">Năm sinh</th>
-            <th scope="col">Email</th>
-            <th scope="col">Số điện thoại</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="noidung">
-            <td scope="row">Winnifred Tribe</td>
-            <td>2000</td>
-            <td>wtribe@kickstarter.com</td>
-            <td>867-130-6017</td>
-            <td>
-                 
-                <button type="button" class="btn btn-primary button1">
-                    <i class="bi bi-pencil-square"></i>    
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                      </svg>
-                    Chỉnh sửa
-
-                </button>
-
-                <button type="button" class="btn btn-danger button2">
-                    <i class="bi bi-trash"></i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                      </svg>    
-                    Xóa
-                </button>
-            </td>
-          </tr>
-          <tr class="noidung">
-            <td scope="row">Jodie Nicklin</td>
-            <td>2005</td>
-            <td>jnicklin1@hao123.com</td>
-            <td>472-237-6018/</td>
-            <td>
-                <button type="button" class="btn btn-primary button3">
-                    <i class="bi bi-pencil-square"></i>    
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                      </svg>
-                    Chỉnh sửa
-
-                </button>
-
-                <button type="button" class="btn btn-danger button4">
-                    <i class="bi bi-trash"></i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                      </svg>    
-                    Xóa
-                </button>
-            </td>
-          </tr>
-          <tr class="noidung">
-            <td scope="row">Fernanda Howton</td>
-            <td>2001</td>
-            <td>fhowton@ebay.co.uk</td>
-            <td>172-134-4609</td>
-            <td>
-                <button type="button" class="btn btn-primary button1">
-                    <i class="bi bi-pencil-square"></i>    
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                      </svg>
-                    Chỉnh sửa
-
-                </button>
-
-                <button type="button" class="btn btn-danger button2">
-                    <i class="bi bi-trash"></i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                      </svg>    
-                    Xóa
-                </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-   </div>
-
-   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-  
-  </body>
 </html>
