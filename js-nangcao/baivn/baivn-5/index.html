@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sinh viên</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+  
+  
+
+  <style>
+    .all {
+      width: 80%;
+
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      margin: 10px 0;
+    }
+
+    a:nth-child(2n) {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="all mx-auto">
+    <h1 class="tieu-de">Danh sách học viên</h1>
+    <a href="form.html"><button type="button" class="btn btn-success "><i class="fas fa-plus-circle"></i> Thêm học
+        viên</button></a>
+    <table class="table table-hover table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Họ tên</th>
+          <th scope="col">Năm sinh</th>
+          <th scope="col">Email</th>
+          <th scope="col">Số điện thoại</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="danhsach"></tbody>
+    </table>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+
+    const edit = "edit-student-"
+    $(() => {
+      renderStudent();
+    })
+
+    // lấy thông tin từ sever về bảng
+    function renderStudent() {
+      $.ajax({
+        method: "GET",
+        url: " https://tuan-hong.herokuapp.com/users"
+      })
+        .done(function (data) {
+          let danhsach = '';
+
+          for (let i = 0; i < data.length; i++) {
+            danhsach += `<tr>
+                        <th scope="row" id="name${data[i].id}" contenteditable>${data[i].name}</th>
+                        <td id="dob${data[i].id}" contenteditable >${data[i].birthday}</td>
+                        <td id="email${data[i].id}" contenteditable>${data[i].email}</td>
+                        <td id="phone${data[i].id}" contenteditable>${data[i].phone}</td>
+                        <td>
+                            <a href=""  onclick="updateStudent(${data[i].id})" "><i class="fas fa-edit"></i>Chỉnh sửa</a> | 
+                            <a href="" id="delete" onclick="deleteStudent(${data[i].id})"><i class="fas fa-trash-alt"></i>Xóa </a>
+                        </td>
+                      </tr> `;
+
+          }
+
+          $('.danhsach').html(danhsach);
+
+        });
+    }
+    // chỉnh sửa thông tin học viên
+    function updateStudent(id) {
+      var r = confirm("Bạn có muốn lưu thông tin đã chỉnh sửa không?");
+      if (r == true) {
+        $.ajax({
+          method: "PUT",
+          url: ` https://tuan-hong.herokuapp.com/users/${id}`,
+          data: {
+            name: $(`#name${id}`).text(),
+            birthday: $(`#dob${id}`).text(),
+            email: $(`#email${id}`).text(),
+            phone: $(`#phone${id}`).text(),
+          }
+        })
+      } else {
+        location.reload();
+      }
+
+    }
+    //xóa học viên
+      function deleteStudent(id) {
+      var r = confirm("Bạn có muốn xóa học viên " + $(`#name${id}`).text() + " không?");
+      if (r == true) {
+        $.ajax({
+              method: "DELETE",
+              url: `https://tuan-hong.herokuapp.com/users/${id}`
+            })
+      } else {
+        location.reload()
+      }
+
+          
+    };
+
+
+   
+    
+  </script>
+
+  <!-- bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+    integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
