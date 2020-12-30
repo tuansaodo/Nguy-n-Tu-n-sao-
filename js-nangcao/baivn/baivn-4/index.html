@@ -5,17 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quản lý sinh viên</title>
-  <!-- font-awesome -->
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 
-  <!-- bootstrap -->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
 
-  <!-- jquery ajax -->
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <style>
@@ -44,7 +44,7 @@
 
 <body>
   <div class="all mx-auto">
-    <h1 class="text-center">Danh sách học viên</h1>
+    <h1 class="tieu-de">Danh sách học viên</h1>
     <a href="form.html"><button type="button" class="btn btn-success "><i class="fas fa-plus-circle"></i> Thêm học
         viên</button></a>
     <table class="table table-hover table-striped">
@@ -57,7 +57,7 @@
           <th></th>
         </tr>
       </thead>
-      <tbody class="student"></tbody>
+      <tbody class="danhsach"></tbody>
     </table>
   </div>
 
@@ -75,10 +75,10 @@
         url: " https://tuan-hong.herokuapp.com/users"
       })
         .done(function (data) {
-          let student = '';
+          let danhsach = '';
 
           for (let i = 0; i < data.length; i++) {
-            student += `<tr>
+            danhsach += `<tr>
                         <th scope="row" id="name${data[i].id}" contenteditable>${data[i].name}</th>
                         <td id="dob${data[i].id}" contenteditable >${data[i].birthday}</td>
                         <td id="email${data[i].id}" contenteditable>${data[i].email}</td>
@@ -91,7 +91,7 @@
 
           }
 
-          $('.student').html(student);
+          $('.danhsach').html(danhsach);
 
         });
     }
